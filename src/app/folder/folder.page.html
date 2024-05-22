@@ -1,21 +1,102 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary" class="ion-padding-vertical">
+
+    <ion-title mode="ios">
+      <img alt="" src="assets/logo.png"/>
+    </ion-title>
+
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-thumbnail>
+        <ion-menu-toggle autoHide="true">
+          <ion-icon name="grid-outline"></ion-icon>
+    </ion-menu-toggle>
+      </ion-thumbnail>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-thumbnail>
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-thumbnail>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-thumbnail>
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-thumbnail>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header>
+  <ion-item lines="none">
+		<ion-avatar slot="start">
+			<img src="https://avatar.iran.liara.run/public/boy?username=Ash">
+    </ion-avatar>
+			<ion-label>
+				<p>Bonjour,</p>
+				<h3>{{user?.name}}</h3>
+			</ion-label>
+      <ion-label slot="end">
+				<h3>{{user?.reseau?.name}}</h3>
+			</ion-label>
+	</ion-item>
+  <div class="header">
+    <ion-row class="tagline">
+      <ion-col>
+        <ion-label>
+          <ion-text>
+            Trouvez un bus
+          </ion-text>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+    <ion-row class="srch">
+      <ion-col size="12">
+        <ion-item>
+          <ion-input class="srchBar" placeholder="Matricule bus"
+          [(ngModel)]="searchTerm"
+          (ionInput)="handleVChange($event)">
+            <ion-icon slot="start" name="search" aria-hidden="true"></ion-icon>
+            <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="clearVSearch()"
+            *ngIf="searchV === true" mode="ios">
+              <ion-icon slot="icon-only" name="close" mode="ios" size="large" aria-hidden="true" color="dark"></ion-icon>
+            </ion-button>
+          </ion-input>
+        </ion-item>
+      </ion-col>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{ folder }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong class="capitalize">{{ folder }}</strong>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    </ion-row>
   </div>
+</ion-header>
+<ion-content class="ion-padding">
+
+  @if (vehicules.length > 0) {
+    <ion-list lines="none" class="ion-margin-bottom recentitems">
+
+      <ion-list-header class="ion-margin-bottom">
+        <ion-label>
+          Liste des bus
+        </ion-label>
+        <ion-button fill="clear" size="small" color="medium">
+          <ion-text>
+            Voir Tout
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+
+
+        <ion-item class="ion-margin-bottom"
+        *ngFor="let item of vehicules" [routerLink]="['/', 'bus/', item.id]" (click)="view(item.id)">
+          <ion-thumbnail slot="start">
+            <img src="assets/bus.png">
+          </ion-thumbnail>
+          <ion-label class="recent">
+            {{item?.matricule}}
+            <p>
+              {{item?.operator?.name}}
+              <span class="dot"></span>
+              {{item?.Companie?.name}}
+            </p>
+          </ion-label>
+        </ion-item>
+
+    </ion-list>
+  }
 </ion-content>

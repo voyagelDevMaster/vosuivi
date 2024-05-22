@@ -1,0 +1,112 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="close()">
+      <ion-button>
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-list>
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label color="dark">
+            <ion-row class="ion-align-items-right">
+              <ion-col size="3">
+                <ion-icon name="bus-outline" size="large"></ion-icon>
+              </ion-col>
+              <ion-col size="9">
+                <strong>{{bus?.matricule}}  </strong> <br /><span>{{bus?.operator?.name}}</span>
+
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item-divider>
+      </ion-item-group>
+    </ion-list>
+  </ion-toolbar>
+
+  <ion-row class="srch">
+    <ion-col size="12">
+      <ion-item>
+        <ion-input class="srchBar" placeholder="Matricule bus"
+        [(ngModel)]="searchTerm"
+        (ionInput)="handleVChange($event)">
+          <ion-icon slot="start" name="search" aria-hidden="true"></ion-icon>
+          <ion-button fill="clear" slot="end" aria-label="Show/hide" (click)="clearVSearch()"
+          *ngIf="searchV === true" mode="ios">
+            <ion-icon slot="icon-only" name="close" mode="ios" size="large" aria-hidden="true" color="dark"></ion-icon>
+          </ion-button>
+        </ion-input>
+      </ion-item>
+    </ion-col>
+
+  </ion-row>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (sellings.length > 0) {
+    <ion-list lines="none" class="ion-margin-bottom recentitems">
+
+      <ion-list-header class="ion-margin-bottom">
+        <ion-label>
+          Liste des services
+        </ion-label>
+        <ion-button fill="clear" size="small" color="medium">
+          <ion-text>
+            Voir Tout
+          </ion-text>
+        </ion-button>
+      </ion-list-header>
+
+      <div *ngFor="let item of sellings">
+        <ion-item class="ion-margin-bottom" [routerLink]="['/', 'selling/', item.id]"  [color]="item?.isActiveted === false ? 'medium' : 'primary'" (click)="view(item.id)">
+          <ion-thumbnail slot="start">
+            <img src="assets/bus.png">
+          </ion-thumbnail>
+          <ion-label class="recent">
+            {{item?.sellingDate}}
+            <p color="dark">
+              Receveur(se)
+              <span class="dot"></span>
+              {{item?.seller}}
+            </p>
+            <p>
+              Chauffeur
+              <span class="dot"></span>
+              {{item?.driver}}
+            </p>
+
+            <p>
+              Début
+              <span class="dot"></span>
+              {{item?.startTime}}
+              <span class="dot"></span>
+              Fin
+              <span class="dot"></span>
+              {{item?.endTime}}
+            </p>
+          </ion-label>
+        </ion-item>
+
+      </div>
+
+    </ion-list>
+  }
+@else {
+    <ion-list lines="none" class="ion-margin-bottom recentitems">
+      <ion-list-header class="ion-margin-bottom">
+        <ion-label>
+          Liste des services
+        </ion-label>
+      </ion-list-header>
+        <ion-item class="ion-margin-bottom">
+          <ion-thumbnail slot="start">
+            <img src="assets/bus.png">
+          </ion-thumbnail>
+          <ion-label class="recent">
+            Pas de services ouverts
+          </ion-label>
+        </ion-item>
+    </ion-list>
+  }
+</ion-content>

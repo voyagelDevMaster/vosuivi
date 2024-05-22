@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
-};
+  production: true,
+  voapiUrl: 'https://voticket-core.vercel.app/api/v1/',
+}

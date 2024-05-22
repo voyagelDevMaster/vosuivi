@@ -1,8 +1,8 @@
 {
   "name": "vosuivi",
   "version": "0.0.1",
-  "author": "Ionic Framework",
-  "homepage": "https://ionicframework.com/",
+  "author": "Voyagel Team",
+  "homepage": "https://voyagel.sn/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -21,13 +21,17 @@
     "@angular/platform-browser": "^17.0.2",
     "@angular/platform-browser-dynamic": "^17.0.2",
     "@angular/router": "^17.0.2",
+    "@angular/service-worker": "^17.0.2",
     "@capacitor/app": "6.0.0",
     "@capacitor/core": "6.0.0",
     "@capacitor/haptics": "6.0.0",
     "@capacitor/keyboard": "6.0.0",
     "@capacitor/status-bar": "6.0.0",
     "@ionic/angular": "^8.0.0",
+    "@ionic/storage-angular": "^4.0.0",
+    "@supabase/supabase-js": "^2.43.2",
     "ionicons": "^7.0.0",
+    "ng2-search-filter": "^0.5.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.2"

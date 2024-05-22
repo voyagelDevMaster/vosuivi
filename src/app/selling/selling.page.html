@@ -1,0 +1,120 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start"  (click)="close()">
+      <ion-button>
+        <ion-icon name="chevron-back-outline" size="large"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-list>
+      <ion-item-group>
+        <ion-item-divider>
+          <ion-label color="dark">
+            <ion-row class="ion-align-items-right">
+              <ion-col size="3">
+                <ion-icon name="bus-outline" size="large"></ion-icon>
+              </ion-col>
+              <ion-col size="9">
+                <strong>
+                  {{selling?.sellingDate}} <br> {{selling?.vehicule?.matricule}}  </strong> <br /><span>{{selling?.operator?.name}}</span>
+
+              </ion-col>
+            </ion-row>
+          </ion-label>
+        </ion-item-divider>
+      </ion-item-group>
+    </ion-list>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="none" class="ion-margin-bottom recentJobs">
+    <ion-item mode="ios" lines="none">
+      <img alt="" src="assets/rotation.svg" width="40" slot="start" />
+      <ion-label mode="ios">
+        <h3 color="dark" class="ion-text-wrap">
+          <strong> Receveur(se) - {{selling?.seller}} <br>
+            Chauffeur - {{selling?.seller}}
+            <br>Début service: {{selling?.startTime}}
+            <br>Fin de service: {{selling?.endTime}}
+            <br>Total Tickets: {{ selling?.ticketCount }}
+            <br>Total Trajets: {{selling?.trajetCount}}
+          </strong>
+        </h3>
+      </ion-label>
+    </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-card mode="ios">
+            <ion-item mode="ios">
+              <ion-label mode="ios">
+                {{ selling?.ticketCount }} TICKETS
+              </ion-label>
+            </ion-item>
+            <ion-item color="light" mode="ios">
+              <ion-text mode="ios">
+                <h5 class="main">
+                  {{ selling?.revenue }} CFA
+                </h5>
+              </ion-text><br>
+            </ion-item>
+            <br><br>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card mode="ios">
+            <ion-item mode="ios">
+              <ion-label mode="ios">
+                LOCATION
+              </ion-label>
+            </ion-item>
+            <ion-item color="light" mode="ios">
+              <ion-text mode="ios">
+                <h5 class="main">
+                  0 CFA
+                </h5>
+              </ion-text>
+            </ion-item>
+            <br><br>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card mode="ios">
+            <ion-item mode="ios">
+              <ion-label mode="ios">
+                DEPENSES
+              </ion-label>
+            </ion-item>
+            <ion-item color="light" mode="ios">
+              <ion-text mode="ios">
+                <h5 class="main">
+                  {{ selling?.expense }} CFA
+                </h5>
+              </ion-text>
+            </ion-item>
+            <br><br>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card mode="ios">
+            <ion-item mode="ios">
+              <ion-label mode="ios">
+                SOLDE
+              </ion-label>
+            </ion-item>
+            <ion-item color="light" mode="ios">
+              <ion-text mode="ios">
+                <h5 class="main">
+                  {{ selling?.solde }} CFA
+                </h5>
+              </ion-text>
+            </ion-item>
+            <br><br>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+</ion-content>

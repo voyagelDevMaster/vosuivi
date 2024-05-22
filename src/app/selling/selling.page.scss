@@ -1,0 +1,154 @@
+ion-header {
+  ion-toolbar {
+      --padding-start: 16px;
+      --padding-end: 16px;
+
+  }
+}
+
+
+ion-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  --background:var(--ion-color-light) !important;
+
+  .flex{
+    align-items: left;
+    ion-col {
+      text-align: center;
+      margin-bottom: -5px;
+    }
+  }
+  .main {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+
+  }
+  .parent {
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    background-color: #000000;
+    border: solid 1px #fff;
+    color: #fff;
+    margin-bottom: 5px;
+    padding: 6px 0;
+  }
+  .unread-indicator {
+    background: var(--ion-color-primary);
+
+    width: 10px;
+    height: 10px;
+
+    border-radius: 100%;
+
+    position: absolute;
+
+    inset-inline-start: 12px;
+    top: 12px;
+  }
+
+  ion-col {
+    .items {
+      --border-radius: 10px;
+      background-color: #000000;
+      border: solid 1px #fff;
+      color: #fff;
+    }
+    text-align: center;
+  }
+  .metadata-end-wrapper {
+    position: absolute;
+
+    top: 10px;
+    inset-inline-end: 10px;
+
+    font-size: 0.8rem;
+
+    display: flex;
+    align-items: center;
+  }
+
+  ion-label strong {
+    display: block;
+
+    max-width: calc(100% - 60px);
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+  }
+
+  ion-label ion-note {
+    font-size: 0.9rem;
+  }
+  span.dot {
+    margin: 0 2px 2px 2px;
+    height: 3px;
+    width: 3px;
+    background-color: dimgray;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  ion-list {
+    background: transparent;
+    ion-list-header {
+      padding-right: 1vh;
+      ion-label {
+        font-size: 1.1rem;
+      }
+      ion-button {
+        ion-text {
+          font-size: 0.7rem;
+        }
+      }
+    }
+
+    ion-thumbnail {
+        height: 4vh;
+        width: 4vh;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          height: 70%;
+          width: 70%;
+        }
+    }
+    ion-label.recent {
+        font-size: 0.95rem;
+        font-weight: bold;
+        p {
+            margin-top: 5px;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+    }
+
+      ion-text[slot="end"] {
+        font-size: 0.65rem;
+        font-weight: 500;
+        align-self: end;
+        margin-bottom: 0.8vh;
+    }
+    ion-list.recentJobs {
+      ion-item {
+        margin-left: 1.5vh;
+        margin-right: 1.5vh;
+        border-radius: 10px;
+        ion-label {
+          margin-top: 1.5vh;
+          margin-bottom: 1.5vh;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
